@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Bootstrap CSS -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;500&display=swap" rel="stylesheet">
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+
+		<title>Fight The Mind</title>
+	</head>
+    <style>
+		*{
+			
+			font-family: 'Vollkorn', serif;
+	
+		}
+		.navbar-custom{
+			background-color: #afeeee !important;
+		}
+		
+	
+		
+
+		
+		.navbar-brand{
+			color: black !important;
+			font-size: 2rem;
+		}
+	
+	
+
+        .nav-item{
+            padding: 0.5rem ;
+			color: white !important;
+        }
+		.footer{
+			padding: 1.5rem;
+			background-color: #afeeee !important;
+		}
+		
+    </style>
+	<body>
+		
+		<!-- <div
+		id="jarallax-container-0"
+		style="position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		z-index: -100;"
+		}
+	>
+		<img
+			src="https://images.unsplash.com/photo-1620331532624-8f08915e2ff5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80"
+			class="jarallax-img"
+			style="object-fit: cover;
+			object-position: 50% 50%;
+			max-width: none;
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 1680px;
+			height: 740.8px;
+			overflow: hidden;
+			pointer-events: none;
+			transform-style: preserve-3d;
+			backface-visibility: hidden;
+			will-change: transform, opacity;
+			margin-top: auto;
+			transform: translate3d(0px, 17.96px, 0px);"
+		/> -->
+	</div>
+		<nav class="navbar navbar-custom navbar-expand-lg navbar-light bg-primary">
+			<div class="container-fluid">
+				<a class = "navbar-brand" href="{% url 'home' %}">Fight The Mind</a>
+                	<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="btn btn-light" href="{% url 'doctors' %}">
+							Doctors
+						</a>
+						<li class="nav-item">
+							<a class="btn btn-light" href="{% url 'celebrities' %}">
+							Celebrities
+						</a>
+						{% if user.is_authenticated %}
+						<li class="nav-item">
+							<a class="btn btn-light" href="{% url 'create' %}">
+							Add Post
+						</a>
+						</li>
+						<li class="nav-item">
+							<a class="btn btn-light" href="{% url 'edit_profile' %}">
+								Edit Profile
+							</a></li>
+						</li>
+						<li class="nav-item">
+							<a class="btn btn-light" href="{% url 'logout' %}">
+								Logout
+							</a></li>
+						</li>
+						{% else %}
+						<li class="nav-item">
+							<a class="btn btn-light" href="{% url 'register' %}">
+								Register
+							</a></li>
+							<li class="nav-item">
+								<a class="btn btn-light" href="{% url 'login' %}">
+									Login
+								</a></li>
+                        
+	
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container">{% block content %} {% endblock %}</div>
+		<div class="footer text-center overflow-hidden" style="background-color: cyan;">
+			<div class="col-lg-4 text-lg-left mt-4 mt-lg-0">
+				<p class="fs--1 text-uppercase ls font-weight-bold mb-0">
+					COPYRIGHT FIGHT THE MIND INC.
+				</p>
+			</div>
+		</div>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
+
+		<!-- Option 2: Separate Popper and Bootstrap JS -->
+		<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+	</body>
+</html>

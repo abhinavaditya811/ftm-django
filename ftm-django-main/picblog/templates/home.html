@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block content %}
+<style>
+	a {
+		color: black !important;
+	}
+	.btn-primary {
+    background-color: #E0BBE4 !important;
+	border-color: white !important;
+}
+	
+
+</style>
+
+<h1 style="margin-bottom: 50px; text-align: center; font-size: 4rem;">Blog</h1>
+
+<ul class="list-group list-group-flush" style="color: black;">
+	{% for post in object_list %}
+	<li class="list-group-item" style="margin-bottom: 2rem; color: black" >
+		<a style="color: white;"href="{% url 'post' post.pk%}" class="btn btn-primary btn-lg"
+			>{{post.title}}
+		</a>
+		by {{post.author.username}}
+		<small>
+			{% if user.is_authenticated %} {% if user.id == post.author.id %} -<a
+				href="{% url 'update' post.pk%}"
+			>
+				Edit </a
+			><a href="{% url 'delete' post.pk%}"> Delete </a>
+			{% endif %} {% endif %}
+		</small>
+		<br />
+		<br />
+		<div  class="bg-light p-5 rounded">{{post.body}}</div>
+
+		<br />
+		<br />
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}
